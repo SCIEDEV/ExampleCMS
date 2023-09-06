@@ -2,7 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="flex flex-col px-10 bg-grey-100 min-h-screen">
+    <p class="dark:text-white font-bold text-2xl md:text-6xl text-center pb-10">@ViewBag.Greeting, &nbsp; @ViewBag.User</p>
+    <p id="clock" class="dark:text-white text-1xl md:text-3xl text-center pb-10"></p>
+
+    
 </div>
+
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();  // Call it once to set the clock immediately
+</script>

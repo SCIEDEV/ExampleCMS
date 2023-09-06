@@ -15,6 +15,18 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        string user = "Hardy Wen";
+        int stu_num = 21447;
+
+        var currentTime = DateTime.Now;
+        string greeting = "";
+        greeting = (currentTime.Hour >= 0 && currentTime.Hour < 12) ? "Good Morning" :
+            (currentTime.Hour >= 12 && currentTime.Hour < 18) ? "Good Afternoon" : "Good Evening";
+
+        ViewBag.user = user;
+        ViewBag.stu_num = stu_num;
+        ViewBag.greeting = greeting;
+
         return View();
     }
 

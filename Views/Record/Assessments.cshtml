@@ -1,0 +1,27 @@
+﻿@model CMS.Models.TestResult
+
+<div class="min-h-screen">
+    <h1>Assessments</h1>
+
+    <h1 class="dard:text-white text-1xl md:text-3xl font-medium">
+        <b>Subject</b>: @ViewBag.subject <br />
+        <b>Grade</b>: @ViewBag.grade <br />
+    </h1>
+
+    @using (Html.BeginForm("TestForm", "Record", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td class="dark:text-white ">Enter Subject: </td>
+                <td>@Html.TextBoxFor(m => m.subject)</td>
+            </tr>
+            <tr>
+                <td>Enter Grade: </td>
+                <td>@Html.TextBoxFor(m => m.grade)</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="outline" type="submit" value="Submit Form" /></td>
+            </tr>
+        </table>
+    }
+</div>
