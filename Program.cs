@@ -1,9 +1,15 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using CMS.Data;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddDbContext<ClassDatabaseContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("ClassDatabaseContext"),
+    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ClassDatabaseContext"))));
+
 
 var app = builder.Build();
 
