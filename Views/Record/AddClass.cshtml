@@ -1,0 +1,42 @@
+﻿@model Classes
+
+<div class="min-h-screen text-center">
+    <p class="dark:text-white font-bold tect-2xl md:text-5xl justify-center items-center pb-10">Add Classes</p>
+
+    <form method="post">
+        <table class="min-w-full bg-transparent shadow-md rounded-lg text-center">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 bg-transparent text-white">Period</th>
+                    <th class="py-2 px-4 bg-transparent text-white">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-t">
+                    <td class="py-2 px-4">
+                        <input asp-for="period" type="text" class="form-control w-full bg-transparent rounded px-2 py-1 text-white placeholder-white::placeholder text-center outline-none" placeholder="Enter period" />
+                    </td>
+                    <td class="py-2 px-4">
+                        <input asp-for="className" type="text" class="form-control w-full bg-transparent rounded px-2 py-1 text-white placeholder-white::placeholder text-center outline-none" placeholder="Enter name" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="flex items-center justify-center mt-2 f">
+            <div class="text-center mt-6 inline-flex">
+                <button type="submit" class="text-white border border-white bg-transparent font-semibold hover:bg-gray-500 hover:text-gray-800 py-2 px-4 rounded items-center justify-center transition duration-100 ease-in-out">
+                    <i class="bi bi-plus-circle mr-2"> </i> Add to Timetable
+                </button>
+            </div>
+
+            <div class="w-10"> </div>
+
+            <div class="text-center mt-6 inline-flex">
+                <a asp-controller="Record" asp-action="TimeTable" class="text-gray-400 border border-gray-400 bg-transparent font-semibold hover:bg-gray-500 hover:text-gray-800 py-2 px-4 rounded items-center justify-center transition duration-100 ease-in-out">
+                    <i class="bi bi-plus-circle mr-2"> </i> Back to Timetable
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

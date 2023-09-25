@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ClassDatabaseContext))]
-    [Migration("20230918124802_InitialCreate")]
+    [Migration("20230925104438_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -37,6 +37,20 @@ namespace CMS.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Classes");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            className = "Physcis",
+                            period = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            className = "Literature",
+                            period = 2
+                        });
                 });
 #pragma warning restore 612, 618
         }

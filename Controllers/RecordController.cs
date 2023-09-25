@@ -36,6 +36,18 @@ namespace CMS.Controllers
             return View();
         }
 
+        public IActionResult AddClass()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddClass(Classes obj)
+        {
+            _db.Classes.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("TimeTable");
+        }
+
         [HttpPost]
         public ActionResult TestForm(Models.TestResult sm)
         {
