@@ -1,13 +1,12 @@
-﻿@model List<Classes>
-
-<div class="min-h-screen text-center">
+﻿<div class="min-h-screen text-center">
     <p class="dark:text-white font-bold tect-2xl md:text-5xl justify-center items-center pb-10">Time Table for Today</p>
 
     <table class="min-w-full bg-transparent shadow-md rounded-lg text-center">
         <thead>
             <tr>
-                <th class="py-2 px-4 bg-transparent text-white">Period</th>
-                <th class="py-2 px-4 bg-transparent text-white">Name</th>
+                <th class="py-2 px-4 bg-transparent dark:text-white">Period</th>
+                <th class="py-2 px-4 bg-transparent dark:text-white">Name</th>
+                <th class="py-2 px-4 bg-transparent dark:text-white">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -16,14 +15,30 @@
                 <tr class="border-t">
                     <td class="py-2 px-4">@obj.period</td>
                     <td class="py-2 px-4">@obj.className</td>
+                    <td class="py-2 px-4 w-45">
+                        <div class="flex flex-row text-center justify-center items-center">
+                            <form asp-controller="Record" asp-action="DeleteClass" asp-route-ID="@obj.ID" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger border-none btn-sm hover:bg-gray-500">
+                                    DELETE
+                                </button>
+                            </form>
+
+                            <form asp-controller="Record" asp-action="EditClass" asp-route-ID="@obj.ID" method="get" class="d-inline">
+                                <button type="submit" class="btn btn-danger border-none btn-sm hover:bg-gray-500">
+                                    EDIT
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+
                 </tr>
             }
         </tbody>
     </table>
 
     <div class="text-center mt-6">
-        <a asp-controller="Record" asp-action="AddClass" class="text-white border border-white bg-transparent font-semibold hover:bg-gray-500 hover:text-gray-800 py-2 px-4 rounded items-center justify-center transition duration-100 ease-in-out">
-            <i class="bi bi-plus-circle mr-2"> </i> Add New Class
+        <a asp-controller="Record" asp-action="AddClass" class="dark:text-white border dark:border-white bg-transparent font-semibold hover:bg-gray-500 hover:text-gray-800 py-2 px-4 rounded items-center justify-center transition duration-100 ease-in-out">
+            Add New Class
         </a>
     </div>
 </div>

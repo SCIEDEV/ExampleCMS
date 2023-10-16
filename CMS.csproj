@@ -28,5 +28,9 @@
   <ItemGroup>
     <Folder Include="Views\Record\" />
     <Folder Include="Data\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
   </ItemGroup>
 </Project>
